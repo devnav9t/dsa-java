@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Creativity {
     public static void cTen(int[] arr) {
@@ -98,5 +95,46 @@ public class Creativity {
         for (int i: arr) {
             System.out.println(i + " ");
         }
+    }
+
+    public static void cSixteen() {
+        String[] carbon = {"c", "a", "r", "b", "o", "n"};
+
+        String[] result = carbon;
+
+        for (int i = 0; i < carbon.length - 1; i++) {
+            result = getWordList(result, carbon);
+        }
+
+        int i = 0;
+        for (String s: result) {
+            i++;
+            System.out.println(i + ": " + s);
+        }
+    }
+
+    private static String[] getWordList(String[] prevWordList, String[] strList) {
+        ArrayList<String> output = new ArrayList<>();
+
+        for (String s: prevWordList) {
+            for (String n: strList) {
+                if (!s.contains(n)) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(s);
+                    sb.append(n);
+                    output.add(sb.toString());
+                }
+            }
+        }
+
+        return output.toArray(String[]::new);
+    }
+
+    public static void cSeventeen(int[] arr) {
+        int max = arr[0];
+        for (var a: arr) {
+            if (a > max) { max = a; }
+        }
+        System.out.println("Max value is: "+ max);
     }
 }
